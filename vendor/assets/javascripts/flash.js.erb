@@ -15,6 +15,7 @@ Flash.writeDataTo = function(name, element, callback) {
   var message = "";
   if (Flash.data[name]) {
     message = Flash.data[name].toString().replace(/\+/g, ' ');
+    message = message.replace(/%2B/g, '+');
     element.html(message);
     if (callback && typeof(callback) === 'function') {
       callback(element);
